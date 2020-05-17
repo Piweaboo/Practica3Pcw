@@ -8,7 +8,7 @@
     <script src="script.js"></script>
   </head>
   <!--Comprobar que hay usuario logueado-->
-  <body>
+  <body onload="prepararCanvas(4);">
     <!--Aqui va la imágen y titulo de la página, común a todos-->
     <header>
       <a href="index.html"><img src="media/Seppuku_logo.png" alt="Sudoku_imagen" height="150" width="150"></a>
@@ -19,6 +19,22 @@
     </header>
     <section>
         <h2>Juego</h2>
+        <h5>Tamaño:</h5>
+        <select id="lista" onchange="cambiarCanvas(this.value)">
+          <option value="4">4</option>
+          <option value="9">9</option>
+        </select>
+        <!--
+        <input id="lista" list="tipo" value="4" onchange="cambiarCanvas(this.value)">
+        <datalist id="tipo">
+          <option value="4"></option>
+          <option value="9"></option>
+        </datalist>-->
+
+        <canvas id="canvas"></canvas>
+        <footer>
+          <button id="Boton" onclick="jugar()">Jugar</button>
+        </footer>
     </section>
     <!--el pie de Página-->
     <footer>

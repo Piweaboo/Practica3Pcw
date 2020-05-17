@@ -61,6 +61,13 @@ body>section{
   text-align: center;
 }
 
+body>section>input{
+  width: 3em;
+}
+
+canvas{
+  border: 1px solid #000;
+}
 
 body>section>h2{
   text-align: center;
