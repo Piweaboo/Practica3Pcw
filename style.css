@@ -114,6 +114,44 @@ body>footer>a{
 body>footer>a:hover{
   text-decoration: underline;
 }
+
+/*El mensaje modal*/
+#capa-fondo{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#capa-fondo>article{
+  background-color: #fff;
+  border-radius: 2px solid #000;
+  text-align: center;
+  width: 30em;
+  position: absolute;
+  top: 6em;
+  /*De esta forma , la parte izquierda del article estará a mitad de la ventana,
+  por ello tenemos que hacer un translate de esta manera, para que quede centrado de verdad*/
+  left: 50%;
+  transform: translateX(-50%);
+}
+#capa-fondo>article>h2{
+  background-color:#b3b3b3;
+  margin: 0;
+  padding: .5em;
+}
+#capa-fondo>article>footer>button{
+  margin: .5em;
+  font-size: 1em;
+  background-color:#80dfb7;
+  border: 1px #aaa solid;
+  padding: .5em 2em;
+  cursor: pointer;
+}
+
 /*Aqui abajo los media Query*/
 /*480px*/
 @media all and (min-width: 480px) {

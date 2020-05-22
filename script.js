@@ -99,10 +99,6 @@ function limpiar(){
   ctx.fillRect(0,0,cv.width,cv.height);
 }
 
-function valorCronometro(){
-  console.log(document.querySelector('#crono-si').innerHTML);
-}
-
 //El bucle del juego? xdxdxdd
 function jugar(){
   document.getElementById("lista").disabled = true;
@@ -110,7 +106,7 @@ function jugar(){
   let html  = '';
       html += '<output class="crono" id="crono-si">00:00:00</output>';
       html += '<br>';
-      html += '<button onclick="valorCronometro();">Prueba</button>';
+      //html += '<button onclick="valorCronometro();">Prueba</button>';
       html += '<button onclick="comprobarErrores();">Comprobar</button>';
       html += '<button onclick="detenerPartida();">Finalizar</button>';
   document.querySelector('#botonera').innerHTML = html;
@@ -302,8 +298,8 @@ function comprobarVictoria(){
               html += '<article>';
               html += '<h2>¡Enhorabuena!</h2>';
               html += '<p>Te has pasado el sudoku. Eres to listo bro';
-              html += '<p>Lo has completado en un tiempo de ';
-              html += '<footer><button onclick = "cerrarMensajeModal(-1);">Acceder</button>';
+              html += '<p>Lo has completado en un tiempo de '+document.querySelector('#crono-si').innerHTML;
+              html += '<footer><button onclick = "cerrarMensajeModal(0);">Continuar</button>';
               html += '</article>';
               mensajeModal(html);
         }
@@ -312,9 +308,6 @@ function comprobarVictoria(){
     xhr.setRequestHeader('Authorization',sessionStorage['token']);
     xhr.send(fd);
   }
-
-
-
   /*
   let html= '';
         html += '<article>';
@@ -324,7 +317,6 @@ function comprobarVictoria(){
         html += '</article>';
         mensajeModal(html);
   */
-
 }
 
 //Coge el array partida, limpia el canvas y dibuja conforme este en el array
@@ -471,16 +463,11 @@ function mensajeModal(html){//El contenido que recibes sy que mostrarás en el m
 //En funcion del valor que recibes, te envia a index, refresca o tal
 /* Valor
 0: refrescar
-1: lleva a index
 */
 function cerrarMensajeModal(valor){
   document.querySelector('#capa-fondo').remove();
   if(valor == 0){
     window.location.reload();
-  }else if(valor == 1){
-    window.location.href="index.html";
-  }else if (valor == 2) {
-    window.location.href="login.html";
   }
 }
 
