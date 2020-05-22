@@ -99,6 +99,10 @@ function limpiar(){
   ctx.fillRect(0,0,cv.width,cv.height);
 }
 
+function valorCronometro(){
+  console.log(document.querySelector('#crono-si').innerHTML);
+}
+
 //El bucle del juego? xdxdxdd
 function jugar(){
   document.getElementById("lista").disabled = true;
@@ -106,6 +110,7 @@ function jugar(){
   let html  = '';
       html += '<output class="crono" id="crono-si">00:00:00</output>';
       html += '<br>';
+      html += '<button onclick="valorCronometro();">Prueba</button>';
       html += '<button onclick="comprobarErrores();">Comprobar</button>';
       html += '<button onclick="detenerPartida();">Finalizar</button>';
   document.querySelector('#botonera').innerHTML = html;

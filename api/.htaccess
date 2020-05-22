@@ -5,7 +5,6 @@ RewriteEngine On
 # Si el path hasta la carpeta es:
 #   Windows: C:\xampp\htdocs\pcw\practica3\api,
 #   Linux:   /opt/lampp/htdocs/pcw/practica3/api,
-#            \htdocs\PCW\Practica3Pcw\api
 # habría que poner lo siguiente: RewriteBase /pcw/practica3/api/
 RewriteBase /PCW/Practica3Pcw/api/
 
