@@ -17,14 +17,14 @@
         <p>No, no es la de suicidarse</p>
       </div>
     </header>
+    <!-- onclick="limpiarSeleccion();" -->
     <section>
         <h2>Juego</h2>
-        <h5>Tamaño:</h5>
-        <select id="lista" onchange="cambiarCanvas(this.value)">
+        <h4>Tamaño:</h4><select id="lista" onchange="cambiarCanvas(this.value)">
           <option value="4">4</option>
           <option value="9">9</option>
         </select>
-        <br>
+        <br><br>
         <!--
         <input id="lista" list="tipo" value="4" onchange="cambiarCanvas(this.value)">
         <datalist id="tipo">
@@ -35,6 +35,11 @@
         <canvas id="canvas"></canvas>
         <footer id="botonera">
           <button id="BotonJugar" onclick="jugar()">Jugar</button>
+        </footer>
+        <footer id="numeros">
+          <ul>
+            
+          </ul>
         </footer>
     </section>
     <!--el pie de Página-->

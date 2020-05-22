@@ -19,6 +19,13 @@ body>h3{
   text-align: center;
 }
 
+
+h4{
+  border-bottom: solid;
+  border-color: '#000';
+  border-width: 1px;
+}
+
 /*
 body>div{
   text-align: center;
@@ -71,6 +78,21 @@ canvas{
 
 body>section>h2{
   text-align: center;
+}
+
+#numeros{
+  width: 30em;
+}
+body>section>footer>ul>li{
+  border: 1px solid black;
+  display: inline;
+  padding: 5px;
+  margin: 5px
+}
+
+body>section>footer>ul>li:hover{
+  background-color: #8de8f6;
+  cursor: pointer;
 }
 
 /*El footer*/
