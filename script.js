@@ -159,10 +159,7 @@ function manejarEventos(){
 
   //Se activa cuando se mueve el raton
   cv.onmousemove = function(event){
-    if(bloqueado == false){
-      //console.log(bloqueado);
-      pintarSudoku();
-      rejilla();
+
       //console.log(event.offsetX + '-' + event.offsetY);
       let ancho = cv.width/regiones,
           alto = cv.height/regiones,
@@ -180,10 +177,20 @@ function manejarEventos(){
       //console.log('Zona ' + fila + '-' + columna);
       //console.log('Subzona ' + subfila + '-' + subcolumna);
 
+      if(partidaOriginal[subfila][subcolumna] != 0){
+        cv.style="cursor: default";
+      }else{
+        cv.style="cursor: pointer";
+      }
+
+      if(bloqueado == false){
+        //console.log(bloqueado);
+        pintarSudoku();
+        rejilla();
       if(subfila >=0 && subfila <9 && subcolumna >=0 && subcolumna <9){
         //No hay que colorear las casillas que ya nos daban
         if(partidaOriginal[subfila][subcolumna] == 0){
-          cv.style="cursor: pointer";
+          //cv.style="cursor: pointer";
           ctx.fillStyle = '#8de8f6';
           //ctx.fillRect(0,0,cv.width,cv.height);
           ctx.fillRect(subancho*subcolumna,subalto*subfila,subancho,subalto);
@@ -195,8 +202,6 @@ function manejarEventos(){
             ctx.fillText(partida[subfila][subcolumna],posX,posY);
           }
           rejilla();
-        }else{
-          cv.style="cursor: default";
         }
       }
     }
@@ -307,8 +312,6 @@ function manejarEventos(){
             }
           }
           rejilla();
-        }else{
-          cv.style="cursor: default";
         }
       }
     }else if(document.querySelector('#lista').value == 9){
@@ -404,8 +407,6 @@ function manejarEventos(){
             }
           }
           rejilla();
-        }else{
-          cv.style="cursor: default";
         }
       }
     }
