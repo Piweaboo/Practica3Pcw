@@ -253,19 +253,72 @@ function manejarEventos(){
           ctx.strokeRect(subancho*subcolumna+3,subalto*subfila+3,subancho-5,subalto-5);
 
           //Bueno Alba, te dejo con este embrollo
-          //Ahora pintamos los cuadrados en la misma fila, columna y caja
-          //Vertical
-          /*
-          for(let i = 0; i<cv.height;i++){
-            if(i != seleccionY && partidaOriginal[seleccionX][i] == 0){
-              //cv.style="cursor: pointer";
-              ctx.fillStyle = '#8de8f6';
-              //ctx.fillRect(0,0,cv.width,cv.height);
-              ctx.fillRect(subancho*subcolumna+1,subalto*i+1,subancho,subalto);
-              rejilla();
+          for(var y=0;y<4;y++){
+            if(y!=seleccionY){
+              if(partidaOriginal[subfila][y] == 0){
+                            ctx.fillStyle = '#b5f2f7';
+                            //ctx.fillRect(0,0,cv.width,cv.height);
+                            ctx.fillRect(subancho*y,subalto*subfila,subancho,subalto);
+                            if(partida[subfila][y] != 0){
+                              ctx.fillStyle = '#000000';
+                              ctx.font = ' 45px sans-serif, arial';
+                              let posX = (subancho*y+subancho/2)-13,
+                                  posY = (subalto*subfila+subalto/2)+13;
+                              ctx.fillText(partida[subfila][y],posX,posY);
+                            }
+                            rejilla();
+                          }
+
+            }
+            
+          }
+
+          for(var x=0;x<4;x++){
+            if(x!=seleccionX){
+              if(partidaOriginal[x][subcolumna] == 0){
+                            ctx.fillStyle = '#b5f2f7';
+                            //ctx.fillRect(0,0,cv.width,cv.height);
+                            ctx.fillRect(subancho*subcolumna,subalto*x,subancho,subalto);
+                            if(partida[x][subcolumna] != 0){
+                              ctx.fillStyle = '#000000';
+                              ctx.font = ' 45px sans-serif, arial';
+                              let posX = (subancho*subcolumna+subancho/2)-13,
+                                  posY = (subalto*x+subalto/2)+13;
+                              ctx.fillText(partida[x][subcolumna],posX,posY);
+                            }
+                            rejilla();
+                          }
+
+            }
+            
+          }
+
+          for(var x=fila*2;((fila+1)*2)>x;x++){
+            for(var y=columna*2;((columna+1)*2)>y;y++){
+              if(x!=seleccionX && y!=seleccionY){
+                if(partidaOriginal[x][y] == 0){
+                              ctx.fillStyle = '#b5f2f7';
+                              //ctx.fillRect(0,0,cv.width,cv.height);
+                              ctx.fillRect(subancho*y,subalto*x,subancho,subalto);
+                              if(partida[x][y] != 0){
+                                ctx.fillStyle = '#000000';
+                                ctx.font = ' 45px sans-serif, arial';
+                                let posX = (subancho*y+subancho/2)-13,
+                                    posY = (subalto*x+subalto/2)+13;
+                                ctx.fillText(partida[x][y],posX,posY);
+                              }
+                              rejilla();
+                            }
+  
+              }
+              
+            
+
             }
           }
-          */
+
+
+
 
           rejilla();
         }
@@ -307,19 +360,73 @@ function manejarEventos(){
           ctx.strokeRect(subancho*subcolumna+3,subalto*subfila+3,subancho-5,subalto-5);
 
           //Bueno Alba, te dejo con este embrollo
-          //Ahora pintamos los cuadrados en la misma fila, columna y caja
-          //Vertical
-          /*
-          for(let i = 0; i<cv.height;i++){
-            if(i != seleccionY && partidaOriginal[seleccionX][i] == 0){
-              //cv.style="cursor: pointer";
-              ctx.fillStyle = '#8de8f6';
-              //ctx.fillRect(0,0,cv.width,cv.height);
-              ctx.fillRect(subancho*subcolumna+1,subalto*i+1,subancho,subalto);
-              rejilla();
+
+
+          for(var y=0;y<9;y++){
+            if(y!=seleccionY){
+              if(partidaOriginal[subfila][y] == 0){
+                            ctx.fillStyle = '#b5f2f7';
+                            //ctx.fillRect(0,0,cv.width,cv.height);
+                            ctx.fillRect(subancho*y,subalto*subfila,subancho,subalto);
+                            if(partida[subfila][y] != 0){
+                              ctx.fillStyle = '#000000';
+                              ctx.font = ' 45px sans-serif, arial';
+                              let posX = (subancho*y+subancho/2)-13,
+                                  posY = (subalto*subfila+subalto/2)+13;
+                              ctx.fillText(partida[subfila][y],posX,posY);
+                            }
+                            rejilla();
+                          }
+
+            }
+            
+          }
+
+          for(var x=0;x<9;x++){
+            if(x!=seleccionX){
+              if(partidaOriginal[x][subcolumna] == 0){
+                            ctx.fillStyle = '#b5f2f7';
+                            //ctx.fillRect(0,0,cv.width,cv.height);
+                            ctx.fillRect(subancho*subcolumna,subalto*x,subancho,subalto);
+                            if(partida[x][subcolumna] != 0){
+                              ctx.fillStyle = '#000000';
+                              ctx.font = ' 45px sans-serif, arial';
+                              let posX = (subancho*subcolumna+subancho/2)-13,
+                                  posY = (subalto*x+subalto/2)+13;
+                              ctx.fillText(partida[x][subcolumna],posX,posY);
+                            }
+                            rejilla();
+                          }
+
+            }
+            
+          }
+
+          for(var x=fila*3;((fila+1)*3)>x;x++){
+            for(var y=columna*3;((columna+1)*3)>y;y++){
+              if(x!=seleccionX && y!=seleccionY){
+                if(partidaOriginal[x][y] == 0){
+                              ctx.fillStyle = '#b5f2f7';
+                              //ctx.fillRect(0,0,cv.width,cv.height);
+                              ctx.fillRect(subancho*y,subalto*x,subancho,subalto);
+                              if(partida[x][y] != 0){
+                                ctx.fillStyle = '#000000';
+                                ctx.font = ' 45px sans-serif, arial';
+                                let posX = (subancho*y+subancho/2)-13,
+                                    posY = (subalto*x+subalto/2)+13;
+                                ctx.fillText(partida[x][y],posX,posY);
+                              }
+                              rejilla();
+                            }
+  
+              }
+              
+            
+
             }
           }
-          */
+
+         
 
           rejilla();
         }
