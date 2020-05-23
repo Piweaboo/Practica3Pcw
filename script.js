@@ -43,7 +43,7 @@ function rejilla(){
           ctx.stroke();
         }
         ctx.beginPath();
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 3;
         ctx.strokeStyle ='#000000';
         //Verticales
         ctx.moveTo(i*ancho,0);
@@ -180,7 +180,7 @@ function manejarEventos(){
       //console.log('Zona ' + fila + '-' + columna);
       //console.log('Subzona ' + subfila + '-' + subcolumna);
 
-      if(subfila >=0 && subfila <4 && subcolumna >=0 && subcolumna <4){
+      if(subfila >=0 && subfila <9 && subcolumna >=0 && subcolumna <9){
         //No hay que colorear las casillas que ya nos daban
         if(partidaOriginal[subfila][subcolumna] == 0){
           cv.style="cursor: pointer";
@@ -221,51 +221,108 @@ function manejarEventos(){
     console.log('Zona ' + fila + '-' + columna);
     console.log('Subzona ' + subfila + '-' + subcolumna);
 
-    if(subfila >=0 && subfila <4 && subcolumna >=0 && subcolumna <4){
-      //No hay que colorear las casillas que ya nos daban
-      if(partidaOriginal[subfila][subcolumna] == 0){
-        //Mostramos las cartas del sudoku
-        let html  = '';
-            html += '<h4>Numeros disponibles</h4>';
-            html += '<ul>';
-            html += '<li onclick="introducirNumero(1);">1</li>';
-            html += '<li onclick="introducirNumero(2);">2</li>';
-            html += '<li onclick="introducirNumero(3);">3</li>';
-            html += '<li onclick="introducirNumero(4);">4</li>';
-            html += '<ul>';
-        document.querySelector('#numeros').innerHTML = html;
+    if(document.querySelector('#lista').value == 4){
+      if(subfila >=0 && subfila <4 && subcolumna >=0 && subcolumna <4){
+        //No hay que colorear las casillas que ya nos daban
+        if(partidaOriginal[subfila][subcolumna] == 0){
+          //Mostramos las cartas del sudoku
+          let html  = '';
+              html += '<h4>Numeros disponibles</h4>';
+              html += '<ul>';
+              html += '<li onclick="introducirNumero(1);">1</li>';
+              html += '<li onclick="introducirNumero(2);">2</li>';
+              html += '<li onclick="introducirNumero(3);">3</li>';
+              html += '<li onclick="introducirNumero(4);">4</li>';
+              html += '<ul>';
+          document.querySelector('#numeros').innerHTML = html;
 
-        //Nos guardamos en un par de variables las posiciones en la maytiz de la casilla seleccionada
-        //Porque es más facil hacer 8 veces la misma cosa mal que buscar un manera de no hacerlo pr variables globales, pero eh ¯\_(ツ)_/¯
-        seleccionX = subfila;//ancho
-        seleccionY = subcolumna;//alto
+          //Nos guardamos en un par de variables las posiciones en la maytiz de la casilla seleccionada
+          //Porque es más facil hacer 8 veces la misma cosa mal que buscar un manera de no hacerlo pr variables globales, pero eh ¯\_(ツ)_/¯
+          seleccionX = subfila;//ancho
+          seleccionY = subcolumna;//alto
 
-        pintarSudoku();
-        rejilla();
-        bloqueado = true;
+          pintarSudoku();
+          rejilla();
+          bloqueado = true;
 
-        ctx.fillStyle = '#5566fe';
-        ctx.fillRect(subancho*subcolumna+1,subalto*subfila+1,subancho-2,subalto-2);
-        ctx.strokeStyle = '#e92a52';
-        ctx.lineWidth = 6;
-        ctx.strokeRect(subancho*subcolumna+3,subalto*subfila+3,subancho-5,subalto-5);
+          ctx.fillStyle = '#5566fe';
+          //ctx.fillRect(posX,posY,tamX,tamY);
+          ctx.fillRect(subancho*subcolumna+1,subalto*subfila+1,subancho-2,subalto-2);
+          ctx.strokeStyle = '#e92a52';
+          ctx.lineWidth = 6;
+          ctx.strokeRect(subancho*subcolumna+3,subalto*subfila+3,subancho-5,subalto-5);
 
-        //Bueno Alba, te dejo con este embrollo
-        //Ahora pintamos los cuadrados en la misma fila, columna y caja
-        //Vertical
-        /*
-        for(let i = 0; i<cv.height;i++){
-          if(i != seleccionY && partidaOriginal[seleccionX][i] == 0){
-            //cv.style="cursor: pointer";
-            ctx.fillStyle = '#8de8f6';
-            //ctx.fillRect(0,0,cv.width,cv.height);
-            ctx.fillRect(subancho*subcolumna+1,subalto*i+1,subancho,subalto);
-            rejilla();
+          //Bueno Alba, te dejo con este embrollo
+          //Ahora pintamos los cuadrados en la misma fila, columna y caja
+          //Vertical
+          /*
+          for(let i = 0; i<cv.height;i++){
+            if(i != seleccionY && partidaOriginal[seleccionX][i] == 0){
+              //cv.style="cursor: pointer";
+              ctx.fillStyle = '#8de8f6';
+              //ctx.fillRect(0,0,cv.width,cv.height);
+              ctx.fillRect(subancho*subcolumna+1,subalto*i+1,subancho,subalto);
+              rejilla();
+            }
           }
-        }
-        */
+          */
 
-        rejilla();
+          rejilla();
+        }
+      }
+    }else if(document.querySelector('#lista').value == 9){
+      if(subfila >=0 && subfila <9 && subcolumna >=0 && subcolumna <9){
+        //No hay que colorear las casillas que ya nos daban
+        if(partidaOriginal[subfila][subcolumna] == 0){
+          //Mostramos las cartas del sudoku
+          let html  = '';
+              html += '<h4>Numeros disponibles</h4>';
+              html += '<ul>';
+              html += '<li onclick="introducirNumero(1);">1</li>';
+              html += '<li onclick="introducirNumero(2);">2</li>';
+              html += '<li onclick="introducirNumero(3);">3</li>';
+              html += '<li onclick="introducirNumero(4);">4</li>';
+              html += '<li onclick="introducirNumero(5);">5</li>';
+              html += '<li onclick="introducirNumero(6);">6</li>';
+              html += '<li onclick="introducirNumero(7);">7</li>';
+              html += '<li onclick="introducirNumero(8);">8</li>';
+              html += '<li onclick="introducirNumero(9);">9</li>';
+              html += '<ul>';
+          document.querySelector('#numeros').innerHTML = html;
+
+          //Nos guardamos en un par de variables las posiciones en la maytiz de la casilla seleccionada
+          //Porque es más facil hacer 8 veces la misma cosa mal que buscar un manera de no hacerlo pr variables globales, pero eh ¯\_(ツ)_/¯
+          seleccionX = subfila;//ancho
+          seleccionY = subcolumna;//alto
+
+          pintarSudoku();
+          rejilla();
+          bloqueado = true;
+
+          ctx.fillStyle = '#5566fe';
+          //ctx.fillRect(posX,posY,tamX,tamY);
+          ctx.fillRect(subancho*subcolumna+1,subalto*subfila+1,subancho-2,subalto-2);
+          ctx.strokeStyle = '#e92a52';
+          ctx.lineWidth = 6;
+          ctx.strokeRect(subancho*subcolumna+3,subalto*subfila+3,subancho-5,subalto-5);
+
+          //Bueno Alba, te dejo con este embrollo
+          //Ahora pintamos los cuadrados en la misma fila, columna y caja
+          //Vertical
+          /*
+          for(let i = 0; i<cv.height;i++){
+            if(i != seleccionY && partidaOriginal[seleccionX][i] == 0){
+              //cv.style="cursor: pointer";
+              ctx.fillStyle = '#8de8f6';
+              //ctx.fillRect(0,0,cv.width,cv.height);
+              ctx.fillRect(subancho*subcolumna+1,subalto*i+1,subancho,subalto);
+              rejilla();
+            }
+          }
+          */
+
+          rejilla();
+        }
       }
     }
   }
