@@ -127,10 +127,18 @@ function jugar(){
     let r = JSON.parse(xhr.responseText);
     console.log(r);
     if(r.RESULTADO == 'OK'){
-      //console.log(r.SUDOKU);
+      //console.log("sudoku");
+      let soku = JSON.stringify(r.SUDOKU);
+      //console.log(JSON.parse(JSON.stringify(r.SUDOKU)));
       //console.log(r.TOKEN);
+
+      partidaOriginal = JSON.parse(soku);
       partida = r.SUDOKU;
-      partidaOriginal = r.SUDOKU;
+      for(let i = 0; i<partidaOriginal.length;i++){
+        for(let j = 0; j<partidaOriginal[0].length;j++){
+          partida[i][j] = partidaOriginal[i][j];
+        }
+      }
       //console.log(partida);
       sessionStorage['token'] = r.TOKEN;
       sessionStorage['id'] = r.ID;
@@ -179,6 +187,13 @@ function manejarEventos(){
           ctx.fillStyle = '#8de8f6';
           //ctx.fillRect(0,0,cv.width,cv.height);
           ctx.fillRect(subancho*subcolumna,subalto*subfila,subancho,subalto);
+          if(partida[subfila][subcolumna] != 0){
+            ctx.fillStyle = '#000000';
+            ctx.font = ' 45px sans-serif, arial';
+            let posX = (subancho*subcolumna+subancho/2)-13,
+                posY = (subalto*subfila+subalto/2)+13;
+            ctx.fillText(partida[subfila][subcolumna],posX,posY);
+          }
           rejilla();
         }else{
           cv.style="cursor: default";
@@ -235,6 +250,7 @@ function manejarEventos(){
         ctx.lineWidth = 6;
         ctx.strokeRect(subancho*subcolumna+3,subalto*subfila+3,subancho-5,subalto-5);
 
+        //Bueno Alba, te dejo con este embrollo
         //Ahora pintamos los cuadrados en la misma fila, columna y caja
         //Vertical
         /*
@@ -300,6 +316,19 @@ function comprobarVictoria(){
               html += '<p>Te has pasado el sudoku. Eres to listo bro';
               html += '<p>Lo has completado en un tiempo de '+document.querySelector('#crono-si').innerHTML;
               html += '<footer><button onclick = "cerrarMensajeModal(0);">Continuar</button>';
+              html += '</article>';
+              mensajeModal(html);
+        }else{
+          let html= '';
+              html += '<article>';
+              html += '<h2>¡Ya queda poco!</h2>';
+              if(r.FALLOS.length = 1){
+                html += '<p>Hay ' + r.FALLOS.length +' fallo crack. ¿Quieres intentar corregirlo?';
+              }else{
+                html += '<p>Hay ' + r.FALLOS.length +' errores crack. ¿Quieres intentar corregirlos?';
+              }
+              html += '<footer><button onclick = "cerrarMensajeModal(1);">Si</button></footer>';
+              html += '<footer><button onclick = "cerrarMensajeModal(0);">No</button></footer>';
               html += '</article>';
               mensajeModal(html);
         }
@@ -374,13 +403,11 @@ function detenerPartida(){
   let xhr = new XMLHttpRequest(),
       url = 'api/sudoku/'+sessionStorage['id'];
 
-  //Lo primero parar el cronometro
-  pararSI();
-
   xhr.open('DELETE',url,true);
   xhr.onload = function(){
     let r = JSON.parse(xhr.responseText);
     if(r.RESULTADO == 'OK'){
+      pararSI();
       window.location.href="index.html";
     }
   };
@@ -429,9 +456,9 @@ function colorearErrores(){
       x,y;
 
   //Recorremos todos las parejas de valors en los arrays de errores
-  for(let i = 0; i < erroresF.length;i++){
-    x = erroresF[i];
-    y = erroresC[i];
+  while(erroresF.length > 0 && erroresC.length > 0){
+    x = erroresF[0];
+    y = erroresC[0];
 
     //Pintamos de rojo el hueco
     ctx.fillStyle = '#dd7a7a';
@@ -443,7 +470,10 @@ function colorearErrores(){
     let posX = (subancho*y+subancho/2)-13,
         posY = (subalto*x+subalto/2)+13;
     ctx.fillText(partida[x][y],posX,posY);
+    erroresF.shift();
+    erroresC.shift();
   }
+
   rejilla();
 }
 
@@ -468,9 +498,10 @@ function cerrarMensajeModal(valor){
   document.querySelector('#capa-fondo').remove();
   if(valor == 0){
     window.location.reload();
+  }else if(valor == 1){
+
   }
 }
-
 
 //La parte del cronómetro ========================================
 function actualizarCronoSI(){
