@@ -238,7 +238,7 @@ function manejarEventos(){
               html += '<li onclick="introducirNumero(2);">2</li>';
               html += '<li onclick="introducirNumero(3);">3</li>';
               html += '<li onclick="introducirNumero(4);">4</li>';
-              html += '<ul>';
+              html += '</ul>';
           document.querySelector('#numeros').innerHTML = html;
 
           //Nos guardamos en un par de variables las posiciones en la maytiz de la casilla seleccionada
@@ -331,7 +331,7 @@ function manejarEventos(){
               html += '<li onclick="introducirNumero(7);">7</li>';
               html += '<li onclick="introducirNumero(8);">8</li>';
               html += '<li onclick="introducirNumero(9);">9</li>';
-              html += '<ul>';
+              html += '</ul>';
           document.querySelector('#numeros').innerHTML = html;
 
           //Nos guardamos en un par de variables las posiciones en la maytiz de la casilla seleccionada
@@ -424,7 +424,7 @@ function introducirNumero(numero){
   comprobarVictoria();
 }
 
-//Compruebas que estan todos los número y que están bien
+//Compruebas que estan todos los número y que están bien, o si esta mal, te manda mensaje modal de todos modos asi que...
 function comprobarVictoria(){
   let lleno = true;
   for(let i = 0; i<partida.length;i++){
@@ -464,7 +464,7 @@ function comprobarVictoria(){
           let html= '';
               html += '<article>';
               html += '<h2>¡Ya queda poco!</h2>';
-              if(r.FALLOS.length = 1){
+              if(r.FALLOS.length == 1){
                 html += '<p>Hay ' + r.FALLOS.length +' fallo crack. ¿Quieres intentar corregirlo?';
               }else{
                 html += '<p>Hay ' + r.FALLOS.length +' errores crack. ¿Quieres intentar corregirlos?';
