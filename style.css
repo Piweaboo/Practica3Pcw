@@ -55,12 +55,13 @@ body>header>div>a{
 
 body>header>div>a>h1{
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
 }
 
 body>header>div>p{
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 body>section{
@@ -81,18 +82,38 @@ body>section>h2{
 }
 
 #numeros{
-  width: 30em;
+  
+  width: 100%;
 }
+
+body>section>footer>ul{
+  padding: 0;
+  list-style-type: none;
+}
+
 body>section>footer>ul>li{
   border: 1px solid black;
+  border-radius: 5px;
+  background-color: #c9c9c9;
   display: inline;
+  align-content: center;
+  
   padding: 5px;
-  margin: 5px
+  margin: 5px;
 }
 
 body>section>footer>ul>li:hover{
-  background-color: #8de8f6;
+  background-color: #80dfb7;
   cursor: pointer;
+}
+
+
+#botonera>button:hover{
+  background-color: #80dfb7;
+}
+
+#botonera>button{
+  margin: 5px;
 }
 
 /*El footer*/

@@ -191,7 +191,7 @@ function manejarEventos(){
         //No hay que colorear las casillas que ya nos daban
         if(partidaOriginal[subfila][subcolumna] == 0){
           //cv.style="cursor: pointer";
-          ctx.fillStyle = '#8de8f6';
+          ctx.fillStyle = '#c3f0dd';
           //ctx.fillRect(0,0,cv.width,cv.height);
           ctx.fillRect(subancho*subcolumna,subalto*subfila,subancho,subalto);
           if(partida[subfila][subcolumna] != 0){
@@ -250,7 +250,7 @@ function manejarEventos(){
           rejilla();
           bloqueado = true;
 
-          ctx.fillStyle = '#5566fe';
+          ctx.fillStyle = '#3fbd88';
           //ctx.fillRect(posX,posY,tamX,tamY);
           ctx.fillRect(subancho*subcolumna+1,subalto*subfila+1,subancho-2,subalto-2);
           ctx.strokeStyle = '#e92a52';
@@ -261,7 +261,7 @@ function manejarEventos(){
           for(var y=0;y<4;y++){
             if(y!=seleccionY){
               if(partidaOriginal[subfila][y] == 0){
-                ctx.fillStyle = '#b5f2f7';
+                ctx.fillStyle = '#c3f0dd';
                 //ctx.fillRect(0,0,cv.width,cv.height);
                 ctx.fillRect(subancho*y,subalto*subfila,subancho,subalto);
                 if(partida[subfila][y] != 0){
@@ -278,7 +278,7 @@ function manejarEventos(){
           for(var x=0;x<4;x++){
             if(x!=seleccionX){
               if(partidaOriginal[x][subcolumna] == 0){
-                ctx.fillStyle = '#b5f2f7';
+                ctx.fillStyle = '#c3f0dd';
                 //ctx.fillRect(0,0,cv.width,cv.height);
                 ctx.fillRect(subancho*subcolumna,subalto*x,subancho,subalto);
                 if(partida[x][subcolumna] != 0){
@@ -296,7 +296,7 @@ function manejarEventos(){
             for(var y=columna*2;((columna+1)*2)>y;y++){
               if(x!=seleccionX && y!=seleccionY){
                 if(partidaOriginal[x][y] == 0){
-                  ctx.fillStyle = '#b5f2f7';
+                  ctx.fillStyle = '#c3f0dd';
                   //ctx.fillRect(0,0,cv.width,cv.height);
                   ctx.fillRect(subancho*y,subalto*x,subancho,subalto);
                   if(partida[x][y] != 0){
@@ -343,7 +343,7 @@ function manejarEventos(){
           rejilla();
           bloqueado = true;
 
-          ctx.fillStyle = '#5566fe';
+          ctx.fillStyle = '#3fbd88';
           //ctx.fillRect(posX,posY,tamX,tamY);
           ctx.fillRect(subancho*subcolumna+1,subalto*subfila+1,subancho-2,subalto-2);
           ctx.strokeStyle = '#e92a52';
@@ -356,7 +356,7 @@ function manejarEventos(){
           for(var y=0;y<9;y++){
             if(y!=seleccionY){
               if(partidaOriginal[subfila][y] == 0){
-                ctx.fillStyle = '#b5f2f7';
+                ctx.fillStyle = '#c3f0dd';
                 //ctx.fillRect(0,0,cv.width,cv.height);
                 ctx.fillRect(subancho*y,subalto*subfila,subancho,subalto);
                 if(partida[subfila][y] != 0){
@@ -373,7 +373,7 @@ function manejarEventos(){
           for(var x=0;x<9;x++){
             if(x!=seleccionX){
               if(partidaOriginal[x][subcolumna] == 0){
-                ctx.fillStyle = '#b5f2f7';
+                ctx.fillStyle = '#c3f0dd';
                 //ctx.fillRect(0,0,cv.width,cv.height);
                 ctx.fillRect(subancho*subcolumna,subalto*x,subancho,subalto);
                 if(partida[x][subcolumna] != 0){
@@ -391,7 +391,7 @@ function manejarEventos(){
             for(var y=columna*3;((columna+1)*3)>y;y++){
               if(x!=seleccionX && y!=seleccionY){
                 if(partidaOriginal[x][y] == 0){
-                  ctx.fillStyle = '#b5f2f7';
+                  ctx.fillStyle = '#c3f0dd';
                   //ctx.fillRect(0,0,cv.width,cv.height);
                   ctx.fillRect(subancho*y,subalto*x,subancho,subalto);
                   if(partida[x][y] != 0){
